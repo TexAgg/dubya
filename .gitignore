@@ -1,4 +1,5 @@
 main.tab.*
-E
+dubya
 main.output
 lex.yy.c
+.vscode/

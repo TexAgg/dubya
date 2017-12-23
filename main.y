@@ -8,20 +8,20 @@ extern FILE* yyin;
 void yyerror(const char* s);
 %}
 
-/*
 %union {
 	int ival;
 	bool bval;
 }
-*/
 
-%token INT
-%token BOOL
+%token<ival> INT
+%token<bval> BOOL
 %token PLUS
 %token MULT
 %token EQ
 %token L_PAREN R_PAREN
 %token NEWLINE
+
+%type<ival> expression
 
 %start calculation
 
@@ -35,8 +35,7 @@ line: NEWLINE
 	| expression NEWLINE { printf("\tResult: %i\n", $1); }
 ;
 
-expression: 
-	| INT { $$ = $1; }
+expression: INT { $$ = $1; }
 	| BOOL { $$ = $1; }
 	| expression MULT expression { $$ = $1 * $3; }
 	| expression PLUS expression { $$ = $1 + $3; }
