@@ -12,10 +12,10 @@
 [0-9]+ { yylval.ival = atoi(yytext); return INT; }
 \n { return NEWLINE; }
 "true"|"false" { 
-	if (strcmp(yytext, "true") != 0)
-		yylval.bval = 1;
+	if (strcmp(yytext, "true") == 0)
+		yylval.bval = true;
 	else
-		yylval.bval = 0;
+		yylval.bval = false;
 	return BOOL; 
 }
 "+" { return PLUS;}
