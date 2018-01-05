@@ -10,4 +10,4 @@ dubya: lex.yy.c main.tab.c main.tab.h
 	g++ -o dubya main.tab.c lex.yy.c
 
 clean:
-	rm -f dubya main.tab.* lex.yy.c
+	rm -f dubya main.tab.* lex.yy.c main.output
